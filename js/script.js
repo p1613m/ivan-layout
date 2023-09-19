@@ -1,82 +1,36 @@
 // slider
-let viewPort = $('.viewPort').width();
-let slider = $('.slider');
-let numSlide = 0;
-let timeInterval = 3000;
+class Slider {
+    constructor(slider) {
+        this.slider = slider.find('.slider')
+        this.currentSlide = 1
+        this.slideCount = slider.find('.slide').length
 
+        slider.find('[data-slider-button="next"]')
+            .click(() => this.setSlide(this.currentSlide + 1))
+        slider.find('[data-slider-button="prev"]')
+            .click(() => {
+                this.setSlide(this.currentSlide - 1)
+            })
 
-function NextSlide() {
-    if (numSlide < 2) {
-        numSlide++;
-    } else {
-        numSlide = 0;
+        // setInterval(() => this.setSlide(this.currentSlide + 1), 5000)
     }
 
-    slider.animate({
-        'left': -numSlide * viewPort + 'px'
-    }, 500);
-}
+    setSlide(number) {
+        if (number > this.slideCount) {
+            number = 1;
+        }
 
-function PrewSlide() {
-    if (numSlide > 0) {
-        numSlide--;
-    } else {
-        numSlide = 2;
+        if (number <= 0) {
+            number = this.slideCount
+        }
+
+        this.currentSlide = number
+
+        this.slider.css('transform', `translateX(-${(this.currentSlide - 1) * 100}%)`)
     }
-
-    slider.animate({
-        'left': -numSlide * viewPort + 'px'
-    }, 700);
 }
 
-
-$(function () {
-    let timer = setInterval(NextSlide, timeInterval);
-
-    $('.viewPort').hover(function () {
-        clearInterval(timer);
-    }, function () {
-        timer = setInterval(NextSlide(), timeInterval); 
-    });
-});
-
-
-$('.arrowNext').click(function () {
-    NextSlide(); 
-});
-
-
-$('.arrowPrew').click(function () {
-    PrewSlide(); 
-});
-
-
-// ниже попытка адаптивного слайдера
-
-
-// let images = $('.slide');
-
-// let img = document.getElementsByClassName(".slide img");
-// const slider = $('.slider');
-// let count = 0;
-// let width;
-
-// function init(){
-//     width = $('#slider').width();
-//     slider.css(
-//         'width', width * img.length + 'px'
-//     );
-//     for (let i = 0; i < img.length; i++) {
-//         const element = array[i];
-        
-//         element.css(
-//             'width', width * img.length + 'px'
-//         );
-//     };
-// }
-
-// init();
-
+const slider = new Slider($('[data-slider]'))
 
 // modal ==================================================================================
 
@@ -107,22 +61,20 @@ $('.aboutKuskText p').click(function () {
 $('.aboutWeaponText p').click(function () {
     modalTitle.text('Оружейная палата');
     modalDesc.text('Со времен Ивана III на территории Московского Кремля располагалась Казенная палата. В 1737 г. (при императрице Анне Иоанновне) Казенная палата сгорела. Уцелевшие ценности перенесли в Теремной дворец, а старое здание разобрали. В 1806-1810 гг. архитектор Константин Андреевич Тон построил для хранения кремлевских сокровищ новое здание – Оружейную палату.');
-    
+
 });
 
 
 $('.aboutKingText p').click(function () {
     modalTitle.text('Царицыно');
     modalDesc.text('Музей-заповедник «Царицыно», расположенный на юго-восточной окраине столицы, включает одноименный дворцово-парковый ансамбль, памятник архитектуры XVIII века, и прилегающие к нему Царицынские пруды и пейзажный парк. По площади это крупнейший музейный комплекс Москвы, по значимости – один из самых важных.');
-    
-});
 
+});
 
 
 // inputs ========================================================================
 
 let inputs = $('.input');
-let formsEmpty = true;
 
 $('.removeBtn').click(function () {
     inputs.val('');
@@ -130,7 +82,9 @@ $('.removeBtn').click(function () {
 });
 
 
-$('.buyBtn').click(function () {
+$('#form').submit(function () {
+    event.preventDefault()
+
     if ($('.inputEmail').val() == '' || $('.inputName').val() == '' || $('.inputSecName').val() == '') {
         alert('Не все поля заполнены!');
     } else {
@@ -147,7 +101,7 @@ function Anim(elementForAnimation, nameAnimation) {
 
     $('.' + elementForAnimation).each(function () {
         let element = $(this),
-        height = element.offset().top + element.height();
+            height = element.offset().top + element.height();
 
         if ($(document).scrollTop() + winHeight >= height) {
             element.addClass(nameAnimation);

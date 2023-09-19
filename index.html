@@ -51,51 +51,54 @@
 
 
     <!-- slider ========================================================================== -->
-    <section id="slider">
-        <div class="viewPort">
-            <div class="slider">
-                <div class="slide">
-                    <img class="" src="img/bg_slide_1.png" alt="slide-1">
+    <section class="slider-wrapper" data-slider>
+        <div class="slider">
+            <div class="slide">
+                <img class="" src="img/bg_slide_1.png" alt="slide-1">
 
-                    <div class="slideContent">
+                <div class="slide-content-wrapper">
+                    <div class="slide-content">
                         <h1>Усадьба Кусково</h1>
-                        <h3>Бывшее имение графов Шереметевых</h3>
+                        <p>Бывшее имение графов Шереметевых</p>
 
                         <a href="#about">Подробнее</a>
                     </div>
                 </div>
+            </div>
 
-                <div class="slide">
-                    <img src="img/bg_slide_2.png" alt="slide-1">
-
-                    <div class="slideContent">
+            <div class="slide">
+                <img src="img/bg_slide_2.png" alt="slide-1">
+                <div class="slide-content-wrapper">
+                    <div class="slide-content">
                         <h1>Оружейная палата</h1>
-                        <h3>Музей-сокровищница различных драгоценных предметов</h3>
+                        <p>Музей-сокровищница различных драгоценных предметов</p>
 
                         <a href="#aboutWeapon">Подробнее</a>
                     </div>
                 </div>
+            </div>
 
-                <div class="slide">
-                    <img src="img/bg_slide_3.png" alt="slide-1">
+            <div class="slide">
+                <img src="img/bg_slide_3.png" alt="slide-1">
 
-                    <div class="slideContent">
+                <div class="slide-content-wrapper">
+                    <div class="slide-content">
                         <h1>Царицыно</h1>
-                        <h3>Дворцово-парковый ансамбль на юге Москвы</h3>
+                        <p>Дворцово-парковый ансамбль на юге Москвы</p>
 
                         <a href="#aboutCarisino">Подробнее</a>
                     </div>
                 </div>
             </div>
-
-            <button class="arrow arrowPrew">
-                <img src="img/arrowPrew.png" alt="prew" class="arrImg">
-            </button>
-
-            <button class="arrow arrowNext">
-                <img src="img/arrowNext.png" alt="next" class="arrImg">
-            </button>
         </div>
+
+        <button class="slide-arrow slide-prev" data-slider-button="prev">
+            <img src="img/arrowPrew.png" alt="prew">
+        </button>
+
+        <button class="slide-arrow slide-next" data-slider-button="next">
+            <img src="img/arrowNext.png" alt="next">
+        </button>
     </section>
 
 
@@ -201,7 +204,7 @@
 
     <!-- registr ======================================================================= -->
     <section id="tickets">
-            <form action="" method="post" class="inputs">
+            <form action="" method="post" class="inputs" id="form">
                 <h1 class="eventsTitle ticTitle">Регистрация</h1>
 
 
@@ -224,15 +227,10 @@
                 <input type="text" class="inputSecName input">
 
                 <div class="btns">
-                    <button class="btn removeBtn">Очистить</button>
+                    <button type="button" class="btn removeBtn">Очистить</button>
                     <button class="btn buyBtn">Готово</button>
                 </div>
             </form>
-
-            
-
-            
-        
 
         <img src="img/ticBgImg.png" alt="">
     </section>
@@ -241,7 +239,7 @@
     <!-- footer ======================================================================== -->
     <footer>
         <div class="container">
-            <a href="#slider">Наверх</a>
+            <a href="#">Наверх</a>
 
             <div class="footCont">
                 <div class="logo">
@@ -268,13 +266,13 @@
 
 
                 <div class="links">
-                    <form action="#">
+                    <a href="#">
                         <img src="img/footYt.png" alt="yt" class="yt linkImg">
-                    </form>
+                    </a>
 
-                    <form action="#">
+                    <a href="#">
                         <img src="img/footInst.png" alt="inst" class="inst linkImg">
-                    </form>
+                    </a>
                 </div>
             </div>
         </div>
