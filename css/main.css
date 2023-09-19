@@ -1,0 +1,641 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--textColor);
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: var(--bgLightGray);
+    
+}
+
+:root{
+    --blue: #5C58FF;
+    --red: #F95555;
+    --bgGray: #F1F3FA;
+    --bgLightGray: #FAFBFF;
+    --textColor: #3F3F3F;
+    --titleFont: 'Cormorant';
+}
+
+@font-face {
+    font-family: "Cormorant";
+    src: url('../fonts/Cormorant-VariableFont_wght.ttf');
+}
+
+
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+
+/* first head =============================================================== */
+
+#head{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: fixed;
+    width: 100%;
+    background-color: #ffffffe0;
+    backdrop-filter: blur(7px);
+    font-weight: 300;
+    z-index: 888;
+}
+
+
+.firstHeader{
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid var(--textColor);
+}
+
+
+.firstHeader > .container{
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+
+.links{
+    justify-self: start;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+}
+
+
+.linkImg{
+    cursor: pointer;
+}
+
+
+.yt{
+    margin-right: 6px;
+}
+
+
+.contacts{
+    justify-self: end;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: center;
+    gap: 8px;
+}
+
+.line{
+    height: 20px;
+    width: 1px;
+    background-color: var(--textColor);
+}
+
+/* second head ==================================================================== */
+
+
+.secondHeader{
+    width: 100%;
+    height: 75px;
+}
+
+.secondHeader > .container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.logo{
+    justify-self: start;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-items: start;
+    align-items: center;
+}
+
+.logo > p{
+    align-self: end;
+    line-height: 1;
+    margin-left: 5px;
+    color: var(--red);
+}
+
+.logo > p span{
+    color: var(--blue);
+}
+
+
+.nav{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-self: end;
+    gap: 40px;
+}
+
+.navItem{
+    color: var(--blue);
+    
+    display: inline-block;
+}
+
+.navItem::after{
+    display: block;
+    content: '';
+    height: 1px;
+    width: 0%;
+    background-color: var(--blue);
+    transition: width 0.3s ease-in-out;
+}
+
+
+.navItem:hover::after, 
+.navItem:focus::after{
+    width: 100%;
+}
+
+/* slider ========================================================================== */
+
+#slider{
+    padding-top: calc(50px + 75px);
+    width: 100%;
+}
+
+.viewPort{
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: calc(100% * 3);
+}
+
+.slide{
+    position: relative;
+    width: 100%;
+}
+
+.slide img{
+    width: 100%;
+    height: 918px;
+    object-fit: cover;
+}
+
+.slideContent{
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    position: absolute;
+    top: 40vh;
+}
+
+.slideContent *{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+}
+
+
+.slideContent h1{
+    font-size: 5rem;
+    font-family: var(--titleFont);
+}
+
+.slideContent h3{
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+}
+
+.slideContent  a{
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: transparent;
+    padding: 14px 39px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 4px solid white;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.slideContent  a:hover,
+.slideContent  a:focus{
+    background-color: #fff;
+    color: black;
+}
+
+
+.arrow{
+    position: absolute;
+    top: 60%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+}
+
+.arrowPrew{
+    left: 30px;
+    cursor: pointer;
+}
+
+.arrowNext{
+    right: 30px;
+}
+
+
+/* about cusk ========================================================================== */
+
+.about{
+    padding: 169px 0;
+    width: 100%;
+}
+
+
+.about > .container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.abContainer{
+    width: 480px;
+    justify-self: center;
+    display: grid;
+    gap: 53px;
+    opacity: 0;
+}
+
+.abContainer h1{
+    font-family: var(--titleFont);
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.abContainer h3{
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.abContainer p{
+    font-weight: 300;
+    font-size: 1.3rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#aboutWeapon{
+    background-color: var(--bgGray);
+    width: 100%;
+}
+
+#aboutWeapon h1 span{
+    font-size: 3.3rem;
+}
+
+#aboutWeapon h1{
+    line-height: 70%;
+}
+
+
+/* modal =============================================================================== */
+
+.modalBg{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ad;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    /* display: grid; */
+    justify-items: center;
+    align-items: center;
+}
+
+
+.win{
+    width: 544px;
+    height: auto;
+    background-color: #fff;
+    display: grid;
+    padding: 30px;
+    grid-template-rows: 40px 70px 1fr;
+}
+
+.closeModal{
+    justify-self: end;
+    cursor: pointer;
+}
+
+
+.modalTitle{
+    font-family: var(--titleFont);
+    font-size: 2rem;
+}
+
+.modalDesc{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    font-weight: 300;
+}
+
+
+
+/* sect line ===================================================================== */
+
+.sectLine{
+    height: 1px;
+    width: 100%;
+    background-color: #D2D2D2;
+}
+
+
+
+/* events ========================================================================== */
+
+#events{
+    padding: 169px 0;
+    overflow: hidden;
+    background-color: var(--bgLightGray);
+}
+
+
+#events .container{
+    display: grid;
+    grid-template-rows: 144px auto;
+}
+
+.eventsTitle{
+    justify-self: center;
+    font-family: var(--titleFont);
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    opacity: 0;
+}
+
+.card{
+    background-color: #F1F3FA;
+    /* width: 320px; */
+    /* height: 270px; */
+    border: #E5E5F2 1px solid;
+    box-shadow: 0 15px 15px #EBEBEB;
+}
+
+.padding{
+    padding: 30px;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+}
+
+.padding h1{
+    font-size: 2.65rem;
+    color: var(--blue);
+    font-weight: 300;
+    align-self: start;
+    line-height: 1;
+}
+
+
+.padding span p{
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--blue);
+    line-height: 0.8;
+    align-self: start;
+}
+
+.padding > p{
+    margin-top: 47px;
+    font-weight: 300;
+    font-size: 1.2rem;
+    align-self: end;
+}
+
+/* анимация слева направо */
+
+.animation{
+    animation: cardAnimation 0.8s;
+}
+
+
+
+@keyframes cardAnimation {
+    0%{
+        transform: translateX(3000px);
+    }
+
+    60%{
+        transform: translateX(-25px);
+        opacity: 1;
+    }
+
+    75%{
+        transform: translateX(15px);
+    }
+
+    98%{
+        transform: translateX(-5);
+    }
+}
+
+
+/* анимация справа налево */
+.reversAnimation{
+    animation: revAnimation 0.8s;
+}
+
+
+@keyframes revAnimation {
+    0%{
+        transform: translateX(-3000px);
+    }
+
+    60%{
+        transform: translateX(25px);
+        opacity: 1;
+    }
+
+    75%{
+        transform: translateX(-15px);
+    }
+
+    98%{
+        transform: translateX(5);
+    }
+}
+
+
+
+/* tickets ===================================================================== */
+
+
+#tickets{
+    background-color: var(--bgGray);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.ticTitle{
+    justify-self: start;
+    grid-column: 2 / 3;
+}
+
+.input{
+    height: 60px;
+    border: none;
+    padding: 0 20px;
+    font-size: 1rem;
+}
+
+.inputs{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(6, auto);
+    row-gap: 43px;
+}
+
+.input:focus{
+    outline: none;
+}
+
+
+.inputs p{
+    align-self: center;
+    margin-right: 60px;
+}
+
+
+.btns{
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 40px;
+}
+
+.btn{
+    font-size: 1rem;
+    width: 200px;
+    height: 60px;
+    background-color: #fff;
+    display: grid;
+    align-items: center;
+    text-transform: uppercase;
+    border: none;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.buyBtn{
+    background-color: var(--blue);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.buyBtn:hover,
+.buyBtn:focus{
+    background-color: #fff;
+    color: var(--blue);
+}
+
+
+/* footer ================================================================ */
+footer{
+    height: 170px;
+    background-color: var(--textColor);
+}
+
+
+footer > .container{
+    height: 170px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+}
+
+
+footer > a{
+    font-weight: 300;
+    line-height: 3;
+}
+
+footer *{
+    color: #fff;
+    font-weight: 300;
+}
+
+.footCont{
+    align-self: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .navItem{
+    color: #fff;
+}
+
+
+footer .navItem::after{
+    background-color: #fff;
+}
+
+
+
+@media (max-width: 1440px) {
+    .container{
+        max-width: 1000px;
+    }
+
+    html{
+        font-size: 18px;
+    }
+
+    .about .container{
+        gap: 70px;
+    }
+
+    .about .container img{
+        width: 35vw;
+    }
+
+    #events .card .padding{
+        padding: 20px;
+    }
+
+    #tickets img{
+        display: none;
+    }
+
+    #tickets{
+        padding: 169px 0;
+    }
+
+    .inputs{
+        grid-template-columns: 150px auto;
+    }
+}
